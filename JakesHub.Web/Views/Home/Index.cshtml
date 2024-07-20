@@ -1,0 +1,38 @@
+﻿@model List<JakesHub.Web.Models.Joke>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4 fw-bold">Welcome To JokesHub</h1>
+    <h3>Create, share, and enjoy jokes with JokeHub..!</h3>
+</div>
+
+<div class="container py-5">
+    @if (Model != null && Model.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Joke</th>
+                    <th>Answer</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var joke in Model)
+                {
+                    <tr>
+                        <td>@joke.JokeQuestion</td>
+                        <td>@joke.JokeAnswer</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No Joks Found!</p>
+    }
+</div>
+

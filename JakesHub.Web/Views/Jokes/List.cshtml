@@ -1,0 +1,41 @@
+﻿@model List<JakesHub.Web.Models.Joke>
+@{
+}
+<div class="bg-secondary bg-opacity-10 py-2">
+    <div class="container">
+        <h1>Show All Jokes And Answer</h1>
+    </div>
+</div>
+
+<div class="container py-5"> 
+    @if(Model!=null && Model.Any())
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Joke</th>
+                    <th>Answer</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var joke in Model)
+                {
+                    <tr>
+                        <td>@joke.Id</td>
+                        <td>@joke.JokeQuestion</td>
+                        <td>@joke.JokeAnswer</td>
+                        <td>
+                            <a asp-area="" asp-controller="Jokes" asp-action="Edit" asp-route-id="@joke.Id">Edit</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No Joks Found!</p>
+    }
+</div>
